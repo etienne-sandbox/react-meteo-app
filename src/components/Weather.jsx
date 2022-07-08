@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
-import { getWeather, WeatherResult } from "../logic/api";
-import type { Place } from "./App";
-import { Day, DayWeather } from "./Day";
+import { getWeather } from "../logic/api";
+import { Day } from "./Day";
 
-type WeatherProps = {
-  place: Place;
-};
-
-export function Weather({ place }: WeatherProps): JSX.Element | null {
-  const [data, setData] = useState<WeatherResult | null>(null);
+export function Weather({ place }) {
+  const [data, setData] = useState(null);
   const [day, setDay] = useState(0);
 
   const { latitude, longitude, timezone } = place;
@@ -24,7 +19,7 @@ export function Weather({ place }: WeatherProps): JSX.Element | null {
   const weatherByDay =
     data === null
       ? null
-      : data.daily.time.map((time, index): DayWeather => {
+      : data.daily.time.map((time, index) => {
           return {
             date: new Date(time),
             weatherCode: data.daily.weathercode[index],

@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react";
-import { SearchResult, search } from "../logic/api";
-import type { Place } from "./App";
+import { search } from "../logic/api";
 import { MagnifyingGlass, MinusCircle, PlusCircle } from "phosphor-react";
 import { PlaceItem } from "./PlaceItem";
 
-type SearchProps = {
-  places: Place[];
-  onToggle: (place: Place) => void;
-};
-
-export function Search({ places, onToggle }: SearchProps): JSX.Element | null {
+export function Search({ places, onToggle }) {
   const [query, setQuery] = useState("");
-  const [data, setResults] = useState<SearchResult | null>(null);
+  const [data, setResults] = useState(null);
 
   useEffect(() => {
     if (query.length === 0) {
@@ -30,9 +24,7 @@ export function Search({ places, onToggle }: SearchProps): JSX.Element | null {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          const data = Object.fromEntries(new FormData(e.currentTarget)) as {
-            query: string;
-          };
+          const data = Object.fromEntries(new FormData(e.currentTarget));
           setQuery(data.query);
         }}
       >

@@ -1,20 +1,4 @@
-type PlaceItemProps = {
-  onClick: () => void;
-  name: string;
-  country?: string;
-  country_code?: string;
-  action?: React.ReactNode | null;
-  active?: boolean;
-};
-
-export function PlaceItem({
-  onClick,
-  name,
-  country,
-  country_code,
-  action = null,
-  active = false,
-}: PlaceItemProps): JSX.Element | null {
+export function PlaceItem({ onClick, name, country, country_code, action = null, active = false }) {
   return (
     <li className={"PlaceItem" + (active ? " active" : "")} onClick={onClick}>
       {country_code ? (

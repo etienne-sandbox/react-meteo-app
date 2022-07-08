@@ -1,8 +1,6 @@
 import { CloudSun } from "phosphor-react";
 
-type HeaderProps = {};
-
-export function Header({}: HeaderProps): JSX.Element | null {
+export function Header({}) {
   return (
     <header className="Header">
       <h1>

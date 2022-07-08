@@ -1,14 +1,7 @@
 import { PlusCircle } from "phosphor-react";
-import { Place } from "./App";
 import { PlaceItem } from "./PlaceItem";
 
-type MenuProps = {
-  places: Place[];
-  onPlaceClick: (placeId: number | null) => void;
-  selectedPlaceId: number | undefined | null;
-};
-
-export function Menu({ places, onPlaceClick, selectedPlaceId }: MenuProps): JSX.Element | null {
+export function Menu({ places, onPlaceClick, selectedPlaceId }) {
   return (
     <nav className="Menu">
       <ul className="Menu--items">

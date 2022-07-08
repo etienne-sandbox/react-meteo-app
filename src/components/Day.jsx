@@ -4,22 +4,7 @@ import { DEFAULT_WEATHER_ITEM, WEATHER_DATA } from "../logic/weather";
 import { Measure } from "./Measure";
 import { NavigationArrow } from "phosphor-react";
 
-export type DayWeather = {
-  date: Date;
-  weatherCode: number;
-  tempMin: number;
-  tempMax: number;
-  windSpeed: number;
-  windDirection: number;
-};
-
-type DayProps = {
-  active: boolean;
-  dayWeather: DayWeather;
-  onClick: () => void;
-};
-
-export function Day({ active, dayWeather, onClick }: DayProps): JSX.Element | null {
+export function Day({ active, dayWeather, onClick }) {
   const weekDay = capitalize(formatDate(dayWeather.date, "EEEE"));
   const date = capitalize(formatDate(dayWeather.date, "d"));
   const month = capitalize(formatDate(dayWeather.date, "MMMM"));

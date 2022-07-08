@@ -1,25 +1,13 @@
-import {
-  Cloud,
-  CloudFog,
-  CloudLightning,
-  CloudRain,
-  CloudSnow,
-  CloudSun,
-  IconProps,
-  Question,
-  Sun,
-} from "phosphor-react";
+import { Cloud, CloudFog, CloudLightning, CloudRain, CloudSnow, CloudSun, Question, Sun } from "phosphor-react";
 
-type WeatherItem = { icon: React.ComponentType<IconProps>; color: string; name: string };
-
-export const DEFAULT_WEATHER_ITEM: WeatherItem = {
+export const DEFAULT_WEATHER_ITEM = {
   icon: Question,
   color: "#9ca3af",
   name: "Inconnu",
 };
 
 export const WEATHER_DATA = (() => {
-  const a: Array<WeatherItem | undefined> = [];
+  const a = [];
   // Clear sky
   a[0] = { icon: Sun, color: "#eab308", name: "Ensoleillé" };
 

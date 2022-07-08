@@ -1,13 +1,6 @@
 import React from "react";
 
-type MeasureProps = {
-  name: string;
-  value: React.ReactNode;
-  unit?: string;
-  color: string;
-};
-
-export function Measure({ name, unit, value, color }: MeasureProps): JSX.Element | null {
+export function Measure({ name, unit, value, color }) {
   return (
     <div className="Measure" style={{ color: color }}>
       <div className="Measure--value">

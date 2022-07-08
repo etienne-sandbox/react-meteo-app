@@ -4,24 +4,13 @@ import { Menu } from "./Menu";
 import { Search } from "./Search";
 import { Weather } from "./Weather";
 
-export type Place = {
-  id: number;
-  name: string;
-  latitude: number;
-  longitude: number;
-  timezone: string;
-
-  country?: string;
-  country_code?: string;
-};
-
 export function App() {
-  const [places, setPlaces] = useState<Place[]>([]);
-  const [selectedPlaceId, setSelectedPlaceId] = useState<undefined | number | null>(undefined);
+  const [places, setPlaces] = useState([]);
+  const [selectedPlaceId, setSelectedPlaceId] = useState(undefined);
 
   const selectedPlace = selectedPlaceId ? places.find((p) => p.id === selectedPlaceId) ?? null : null;
 
-  const onToggle = (place: Place) => {
+  const onToggle = (place) => {
     setPlaces((prev) => {
       const exists = prev.find((p) => p.id === place.id);
       if (exists) {
